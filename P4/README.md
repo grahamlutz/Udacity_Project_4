@@ -73,6 +73,13 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 * <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
 # Udacity_Project_4
 
+### Running the App
+
+* Clone repo to your local machine
+* Follow above directions to set up your local host and ngrok
+* Use Google PageSpeed Insights to test page speed
+* Use Chrome Developer tools to optimize page
+
 ### Optimizations
 
 #### index.html
@@ -85,6 +92,7 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 
 ### views/js/main.js
 
+* Line 19  - added "use strict";
 * Line 452 - created variable to store ".randomPizzaContainer"
 * Line 509 - created variable to store "document.body.scrollTop"
 * Line 534 - reduced .mover elements to 28 from 200
