@@ -5,17 +5,14 @@ jank-free at 60 frames per second.
 There are two major issues in this code that lead to sub-60fps performance. Can
 you spot and fix both?
 
-
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
 browser console. To learn more about User Timing API, check out:
 http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
 Creator:
 Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 */
-
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 
@@ -454,9 +451,9 @@ var resizePizzas = function(size) {
   //Create variable to contain all .randomPizzaContainer
   var pizzasContainer = document.getElementsByClassName("randomPizzaContainer");
   var dx = determineDx(pizzasContainer[0], size);
-      var newwidth = (pizzasContainer[0].offsetWidth + dx) + 'px';
+  var newwidth = (pizzasContainer[0].offsetWidth + dx) + 'px';
 
-  // Iterates through pizza elements on the page and changes their widths
+  // Iterates through pizza elements on the page and sets new width based on determineDx()
   function changePizzaSizes(size) {
     for (var i = 0, len = pizzaContainer.length; i < len; i++) {
       // var dx = determineDx(pizzasContainer[i], size);
@@ -476,7 +473,7 @@ var resizePizzas = function(size) {
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
-// This for-loop actually creates and appends all of the pizzas when the page loads
+// This for-loop actually creates and appends all of the pizzas when the page loads - I declared the variable outside the loop
 var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
@@ -510,9 +507,11 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+//variables declared outside the loop
   var items = document.getElementsByClassName('mover');
   var scrollTops = document.body.scrollTop;
 
+//loops through pizzas and changes their position
   for (var i = 0, len = items.length; i < len; i++) {
     var phase = Math.sin((scrollTops / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
